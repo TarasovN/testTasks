@@ -24,14 +24,18 @@ namespace MindboxTest.Shapes
 
         private bool IsSidesValid(double aSide, double bSide, double cSide)
         {
-            if (aSide <= 0 || bSide <= 0 && cSide <= 0)
-                return false;
+            return SidesGreaterThanZero(aSide, bSide, cSide) && TwoSidesGreaterThanThird(aSide, bSide, cSide);
+        }    
+        
+        private bool SidesGreaterThanZero(double aSide, double bSide, double cSide)
+        {
+            return aSide > 0 && bSide > 0 && cSide > 0;
+        }
 
-            if (aSide + bSide <= cSide || aSide + cSide <= bSide || bSide + cSide <= aSide)
-                return false;
-
-            return true;
-        }        
+        private bool TwoSidesGreaterThanThird(double aSide, double bSide, double cSide)
+        {
+            return aSide + bSide > cSide && aSide + cSide > bSide && bSide + cSide > aSide;
+        }
 
         public double Area()
         {
