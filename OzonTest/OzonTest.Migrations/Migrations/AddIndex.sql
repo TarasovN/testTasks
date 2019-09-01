@@ -1,0 +1,1 @@
+CREATE INDEX ON phrases (words text_pattern_ops);

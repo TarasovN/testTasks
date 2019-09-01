@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  
+  sql.data:
+    image: postgres
+  
+  ozontest:
+    image: ${DOCKER_REGISTRY-}ozontest
+    build:
+      context: .
+      dockerfile: OzonTest/Dockerfile
+    depends_on:
+      - sql.data
