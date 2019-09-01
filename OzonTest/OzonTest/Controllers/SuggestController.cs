@@ -10,11 +10,11 @@ namespace OzonTest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SuggestionsController : ControllerBase
+    public class SuggestController : ControllerBase
     {
         private ISuggestionQueries _suggestionQueries;
 
-        public SuggestionsController(ISuggestionQueries suggestionQueries)
+        public SuggestController(ISuggestionQueries suggestionQueries)
         {
             _suggestionQueries = suggestionQueries ?? throw new ArgumentNullException(nameof(suggestionQueries));
         }
